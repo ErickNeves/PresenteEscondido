@@ -1,0 +1,2 @@
+C:\Users\erick\Documents\GitHub\Desenvolvimento de Jogos\Projetos Panda\Presente Escondido\PresenteEscondido\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\erick\Documents\GitHub\Desenvolvimento de Jogos\Projetos Panda\Presente Escondido\PresenteEscondido\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
