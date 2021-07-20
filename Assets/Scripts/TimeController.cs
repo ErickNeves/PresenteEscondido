@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 /*
  
 ====================================
@@ -15,6 +16,8 @@ Também é o responsavel por atualizar o HUD de tempo.
 
 public class TimeController : MonoBehaviour
 {
+
+    private GameControler gameControl;
 
     [SerializeField]
     private float nowTime;
@@ -29,10 +32,12 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private Image fillImg;
 
+    private bool Lose = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameControl = gameObject.GetComponent<GameControler>();
     }
 
     // Update is called once per frame
@@ -41,10 +46,10 @@ public class TimeController : MonoBehaviour
 
         fillImg.fillAmount = (nowTime / maxTime);
 
-        if (nowTime >= maxTime)
+        if (nowTime >= maxTime && !Lose)
         {
-            //CHAMAR TELA DE FALHA
-            Debug.Log("MORREU!");
+            Lose = true;
+            gameControl.Lose();
         }
     }
 
@@ -82,6 +87,16 @@ public class TimeController : MonoBehaviour
     public void MoreTime()
     {
         nowTime -= bonusTime;
+    }
+
+    public float TakeTime()
+    {
+        return nowTime;
+    }
+
+    public float TakeMaxTime()
+    {
+        return maxTime;
     }
 
 }

@@ -14,14 +14,32 @@ public class Ranking : MonoBehaviour
     private GameObject star3;
     [SerializeField]
     private GameObject gameControler;
+    private TimeController timeRef;
 
+    [SerializeField]
+    private GameObject msgVitoria;
+    [SerializeField]
+    private GameObject msgDerrota;
+  
     private int score;
 
     private void Start()
     {
         score = gameControler.GetComponent<GameControler>().QuantPlay;
+        timeRef = gameControler.GetComponent<TimeController>();
 
-        StartCoroutine(ShowStars());
+
+        if(timeRef.TakeTime() < timeRef.TakeMaxTime())
+        {
+            msgVitoria.SetActive(true);
+            StartCoroutine(ShowStars());
+        }
+        else
+        {
+            msgDerrota.SetActive(true);
+        }
+
+        
     }
 
     IEnumerator ShowStars()

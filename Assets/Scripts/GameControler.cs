@@ -186,6 +186,13 @@ public class GameControler : MonoBehaviour
     }
 
 
-
+    public void Lose()
+    {
+        timer.StopTimer();
+        objetos.SetActive(false);
+        fundoPreto.SetActive(false);
+        adelaide.GetComponent<Animator>().SetTrigger("NaoAchou");
+        finalScreen.SetActive(true);
+    }
 
 }
